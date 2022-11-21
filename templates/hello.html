@@ -1,0 +1,34 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hello</title>
+    <link rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body class="container">
+    <h1 class="display-4 mb-4">Naoteto's house portal</h1>
+    <p class="lead">★なおてとハウスのポータルサイトへようこそ★</p>
+  <div class="row">
+    <div class="col-md-6 border border-dark ">
+        <p>ログインはコチラ！</p>
+        <p>{{.Message}}</p>
+        <form action="/login" method="post">
+            <div class="form-group">
+                <label for="account">メールアドレス</label>
+            <input type="mail" class="form-control" id="account" name="account">
+            </div>
+            <div class="form-group">
+                <label for="pass">パスワード</label>
+                <input type="password" class="form-control" id="pass" name="pass">
+            </div>
+            <button type="submit" class="btn btn-primary">
+                Click
+            </button>
+        </form>
+    </div>
+    <div class="col-md-6 border border-dark ">
+    <a class="twitter-timeline" href="https://twitter.com/na0tit?ref_src=twsrc%5Etfw">Tweets by na0tit</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></body>
+    </div>
+</div>
+</html>
