@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch file",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${file}"
+        },
+        {
+            "name": "Remote",
+            "type": "go",
+            "request": "attach",
+            "mode": "remote",
+            "remotePath": "/go/src",
+            "port": 2345,
+            "host": "localhost",
+            "cwd": "${workspaceRoot}",
+        }
+    ]
+}
