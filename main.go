@@ -4,7 +4,21 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+
+	"github.com/gomodule/redigo/redis"
 )
+
+// From https://qiita.com/akubi0w1/items/8701c05fe7186ceee632
+// Connection
+func Connection() (redis.Conn, error) {
+	const Addr = "127.0.0.1:6379"
+
+	c, err := redis.Dial("tcp", Addr)
+	if err != nil {
+		return nil, err
+	}
+	return c, nil
+}
 
 func main() {
 	const (
@@ -55,8 +69,20 @@ func main() {
 		if rq.Method == "POST" {
 			mail := rq.PostFormValue("account")
 			pass := rq.PostFormValue("pass")
-			println(mail, pass)
-			if mail == mail1 && pass == pass1 {
+
+			// 接続
+			c, err := Connection()
+			if err != nil {
+				log.Fatal(er)
+			}
+			defer c.Close()
+			res_get, err := redis.String(c.Do("GET", mail))
+			if err != nil {
+				handler1(w, rq)
+				return
+			}
+
+			if pass == res_get {
 
 				er = tf2.Execute(w, nil)
 				if er != nil {
@@ -77,5 +103,5 @@ func main() {
 	http.HandleFunc("/new/", handler1)
 	http.HandleFunc("/login/", handler2)
 
-	log.Fatal(http.ListenAndServe("", nil))
+	http.ListenAndServe(":8080", nil)
 }
