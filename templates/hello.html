@@ -12,7 +12,9 @@
   <div class="row">
     <div class="col-md-6 border border-dark ">
         <p>ログインはコチラ！</p>
-        <p>{{.Message}}</p>
+        {{ if .Error}}
+        <p><font color="red">{{.Error}}</font></p>
+        {{ end }}
         <form action="/login/" method="post">
             <div class="form-group">
                 <label for="account">メールアドレス</label>
