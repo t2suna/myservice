@@ -1,0 +1,89 @@
+@charset "utf-8";
+
+/* ========== 基本設定 ========== */
+html, body {
+	font-size: 16px;
+	font-family: sans-serif;
+	color: #393939;
+}
+body, div, p, h1, h2, h3, h4, ul, figure {
+	margin: 0;
+	padding: 0;
+}
+/* ヘッダー */
+header {
+	color: #999;
+	text-align: center;
+	border-bottom: 2px solid #ccc;
+}
+.header-container {
+	padding: 20px 20px 17px;
+}
+.header-h1 {
+	font-size: 21px;
+	line-height: 1.4;
+}
+/* フッター */
+footer {
+	font-size: 0.9rem;
+	text-align: center;
+}
+.footer-container {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+/* ========== メインコンテンツ ========== */
+#visit-stamp {
+	/* スタンプが横にはみ出ないように */
+	overflow: hidden;
+	/* スタンプが縦にはみ出るように */
+	margin: -200px 0;
+	padding: 200px 0;
+}
+#visit-stamp table {
+	width: 100%;
+	max-width: 600px;
+	margin: 20px auto;
+	border-collapse: collapse;
+}
+#visit-stamp th, #visit-stamp td {
+	text-align: center;
+	border: 1px solid #fc0;
+	padding: 15px 10px;
+}
+#visit-stamp th {
+	background: #ff9;
+	color: #c00;
+}
+#visit-stamp td span {
+	display: inline-block;
+	color: #c00;
+	font-size: 28px;
+	font-weight: bold;
+	line-height: 1.0;
+	border: 1px solid #c00;
+	border-radius: 50%;
+	padding: 4px;
+	/* スタンプアニメーションのための初期値 */
+	visibility: hidden;
+	opacity: 0.0;
+	transform: scale(10.0) rotate(-30deg);
+}
+#visit-stamp td span.visited {
+	visibility: visible;
+	opacity: 1.0;
+	transform: scale(1.0) rotate(0deg);
+}
+#visitnum {
+	text-align: center;
+}
+#reset {
+	box-sizing: border-box;
+	width: 200px;
+	margin: 50px auto 20px;
+	text-align: center;
+	padding: 10px;
+	background: #ddd;
+	cursor: pointer;
+}

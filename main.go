@@ -59,6 +59,8 @@ func main() {
 			}
 
 		}
+		ses.Values["error"] = nil
+		ses.Save(rq, w)
 
 	}
 
@@ -106,6 +108,7 @@ func main() {
 
 	}
 
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static/"))))
 	http.HandleFunc("/new/", handler1)
 	http.HandleFunc("/login/", handler2)
 
